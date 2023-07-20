@@ -1,0 +1,29 @@
+﻿@model List<ExchangeViewModel.Exchange_Rates>
+@{
+    Layout = null;
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+
+<form method="get">
+    <label>Döviz Kuru Kodu:</label>
+    <input type="text" name="x" />
+    <button class="btn btn-warning">Getir</button>
+    <div class="container">
+        <br /><br />
+        <table class="table table-hover">
+            <tr>
+                <th>Döviz</th>
+                <th>Miktar</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.currency</td>
+                    <td>@item.exchange_rate_buy</td>
+                </tr>
+            }
+        </table>
+    </div>
+
+</form>
